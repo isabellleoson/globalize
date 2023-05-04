@@ -1,25 +1,67 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Root from "./Root";
+import Webshop from "./views/Webshop";
+import Cart from "./views/Cart";
+import Home from "./views/Home";
+import Booking from "./views/Booking";
+import Menu from "./views/Menu";
+import Coq from "./views/Coq";
+
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import Footer from "./components/Footer";
+import { useContext } from "react";
+
+import { UserProvider } from "./components/UserProvider";
+import { UserContext } from "./UserContext";
 
 function App() {
+  const { user } = useContext(UserContext);
+
+  console.log(user);
+
+  const router = createHashRouter([
+    {
+      children: [
+        {
+          element: <Home />,
+          path: "/",
+        },
+        {
+          element: <Menu />,
+          path: "/menu",
+        },
+        {
+          element: <Coq />,
+          path: "/coq",
+        },
+        {
+          element: <Webshop />,
+          path: "/webshop/:user?",
+        },
+        {
+          element: <Cart />,
+          path: "/cart/:user?",
+        },
+        {
+          element: <Booking />,
+          path: "/book",
+        },
+      ],
+      element: <Root />,
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <UserProvider>
+        <div className="App">
+          <RouterProvider router={router} />
+
+          <main></main>
+          <Footer />
+        </div>
+      </UserProvider>
+    </>
   );
 }
 

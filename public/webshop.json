@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Vit hamburger t-shirt",
+    "price": 299,
+    "description": "Vit t-shirt",
+    "image": "/publicimages/merch-shirt.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Vit beach t-shirt",
+    "price": 299,
+    "description": "Vit t-shirt",
+    "image": "/publicimages/merch-beachshirt.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Svart t-shirt",
+    "price": 299,
+    "description": "Svart t-shirt",
+    "image": "/publicimages/merch-blackshirt.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Tygväska",
+    "price": 99,
+    "description": "Tygväska",
+    "image": "/publicimages/merch-bag.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Keps",
+    "price": 99,
+    "description": "Keps",
+    "image": "/publicimages/merch-hat.jpg"
+  }
+]
