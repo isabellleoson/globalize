@@ -6,8 +6,8 @@ const app = express();
 const cors = require("cors");
 
 app.use(express.json());
-
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
 
@@ -19,7 +19,7 @@ app.use((req, res, next) => {
     next();
 });
 
-mongoose.connect("mongodb://127.0.0.1:27017/webshop");
+mongoose.connect("mongodb://127.0.0.1:27017/webshop/");
 
 const WebshopSchema = new mongoose.Schema({
     id: Number,
@@ -150,20 +150,17 @@ app.delete("/product/:id", async (req, res) => {
     }
 });
 
-app.use(express.static(path.join(__dirname, "public")));
-
-// app.use(express.static(path.join(__dirname, "public")));
 // app.use(express.static(path.join(path.resolve(), "public")));
 
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 8080;
 
-app.listen(port, () => {
-    console.log(`Redo på http://localhost:${port}/`);
-});
-
-// app.listen(8080, () => {
-//     console.log("Lyssnar på port 8080");
+// app.listen(port, () => {
+//     console.log(`Redo på http://localhost:${port}/`);
 // });
+
+app.listen(8080, () => {
+    console.log("Lyssnar på port 8080");
+});
 
 // "build-frontend": "npm run --prefix ../frontend build && rm -Rf public && cp -R ../frontend/build public",
 //         "build": "npx tsc",
