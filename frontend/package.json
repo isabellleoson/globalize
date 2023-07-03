@@ -61,6 +61,5 @@
         "file-loader": "^6.2.0",
         "svg-url-loader": "^8.0.0",
         "typescript": "^5.0.2"
-    },
-    "proxy": "http://localhost:8080"
+    }
 }

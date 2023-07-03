@@ -106,13 +106,16 @@ function WebshopFunction(props: Props) {
     axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
     useEffect(() => {
-        axios.get("/").then((response) => {
-            console.log("Data:", response.data);
-            console.log("Data2:", response);
-            console.log("Data3:", result);
+        axios
+            .get("http://localhost:8080/")
+            .then((response) => {
+                console.log("Data:", response.data);
 
-            setResult(response.data);
-        });
+                setResult(response.data);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
     }, [result]);
 
     const addToCart = (product: ProductProps, quantity: number) => {
