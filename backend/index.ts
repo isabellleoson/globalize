@@ -100,6 +100,7 @@ app.get("/", async (req, res) => {
         res.status(200).json(result);
     } catch (error) {
         console.error("Error:", error);
+        console.log("hej!");
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
