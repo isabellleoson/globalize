@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.48009b13.css",
+    "main.js": "/static/js/main.b1c60894.js",
+    "static/js/787.34cf255e.chunk.js": "/static/js/787.34cf255e.chunk.js",
+    "static/media/coqburger3.png": "/static/media/coqburger3.0948aa635b6c42ea4ecf.png",
+    "static/media/coqburger2.png": "/static/media/coqburger2.de4ee3f05daff90edd2c.png",
+    "static/media/coqburger1.png": "/static/media/coqburger1.0a85e85012ca24a5073f.png",
+    "static/media/food1.jpg": "/static/media/food1.0905dc434dab482998da.jpg",
+    "static/media/background.png": "/static/media/background.2460b1a1b756efa3df52.png",
+    "static/media/food3.jpg": "/static/media/food3.9b670dd4c69db6965741.jpg",
+    "static/media/shoptext.png": "/static/media/shoptext.0b88ebd4d95c71c09de9.png",
+    "static/media/menytext.png": "/static/media/menytext.9fb33a5b2c13f56b7294.png",
+    "static/media/Globalize(4).png": "/static/media/Globalize(4).631146bb8dc2bb4a94bb.png",
+    "static/media/cartimg.png": "/static/media/cartimg.8b48ce234c59eb432d1b.png",
+    "static/media/hamburgermenuimg.png": "/static/media/hamburgermenuimg.ced3a0e5fd499ff9cd0c.png",
+    "static/media/copyright.svg": "/static/media/copyright.970849368cc8d70ff3282c79ae6bdf63.svg",
+    "index.html": "/index.html",
+    "main.48009b13.css.map": "/static/css/main.48009b13.css.map",
+    "main.b1c60894.js.map": "/static/js/main.b1c60894.js.map",
+    "787.34cf255e.chunk.js.map": "/static/js/787.34cf255e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48009b13.css",
+    "static/js/main.b1c60894.js"
+  ]
+}
