@@ -82,7 +82,7 @@ app.post("/admin", async (req, res) => {
     }
 });
 
-app.get("/", async (req, res) => {
+app.get("/api", async (req, res) => {
     try {
         let result = await Product.find();
 

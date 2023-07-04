@@ -107,10 +107,8 @@ function WebshopFunction(props: Props) {
 
     useEffect(() => {
         axios
-            .get("http://localhost:8080/")
+            .get("http://localhost:8080/api")
             .then((response) => {
-                console.log("Data:", response.data);
-
                 setResult(response.data);
             })
             .catch((error) => {

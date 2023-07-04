@@ -44,7 +44,7 @@ const UpdatedProducts: React.FC = () => {
     const [result, setResult] = useState<Product[]>([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/").then((response) => {
+        axios.get("http://localhost:8080/api").then((response) => {
             setResult(response.data);
         });
     }, []);
@@ -71,7 +71,7 @@ const UpdatedProducts: React.FC = () => {
             formData.append("description", product.description);
             formData.append("image", product.image);
 
-            await axios.post("http://localhost:8080/product", formData, {
+            await axios.post("http://localhost:8080/api/product", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -94,7 +94,7 @@ const UpdatedProducts: React.FC = () => {
                 image: "",
             });
 
-            const response = await axios.get("http://localhost:8080/");
+            const response = await axios.get("http://localhost:8080/api");
             setProducts(response.data);
             setResult(response.data);
         } catch (error) {
@@ -104,7 +104,9 @@ const UpdatedProducts: React.FC = () => {
 
     const handleDelete = async (productId: number) => {
         try {
-            await axios.delete(`http://localhost:8080/product/${productId}`);
+            await axios.delete(
+                `http://localhost:8080/api/product/${productId}`
+            );
             console.log("Raderad produkt ID:", productId);
 
             setResult((prevResult) =>

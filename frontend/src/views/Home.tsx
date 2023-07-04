@@ -14,7 +14,8 @@ import food3 from "../images/food3.jpg";
 import menytext from "../images/menytext.png";
 import shoptext from "../images/shoptext.png";
 
-import globalize from "../images/Globalize(4).png";
+import globalize from "../images/Globalize.png";
+
 const Container = styled.div`
     display: grid;
     grid-gap: 20px;
