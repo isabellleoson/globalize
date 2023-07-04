@@ -94,7 +94,7 @@ function Home() {
         <>
             <div>
                 <img
-                    style={{ width: "50%" }}
+                    style={{ width: "100%" }}
                     src={globalize}
                     alt="första bild hamburgare"
                 />
