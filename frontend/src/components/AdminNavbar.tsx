@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
-import AdminLogin from "./AdminLogin";
+// import AdminLogin from "./AdminLogin";
 
 interface NavProps {
     isOpen?: boolean;
@@ -17,20 +17,24 @@ const AdminNavbar: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
     const { pathname } = useLocation();
     const [isModalOpen, setModalOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+    console.log(isModalOpen);
+    console.log(menuOpen);
+    console.log(setModalOpen);
+
+    // const toggleMenu = () => {
+    //     setMenuOpen(!menuOpen);
+    // };
     const handleLinkClick = () => {
         setMenuOpen(false);
     };
 
-    const handleOpenModal = () => {
-        setModalOpen(true);
-    };
+    // const handleOpenModal = () => {
+    //     setModalOpen(true);
+    // };
 
-    const handleCloseModal = () => {
-        setModalOpen(false);
-    };
+    // const handleCloseModal = () => {
+    //     setModalOpen(false);
+    // };
 
     useEffect(() => {
         console.log("route", pathname);

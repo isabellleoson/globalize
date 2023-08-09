@@ -8,7 +8,7 @@ const AdminLogin: React.FC<{ onAdminLogin: () => void }> = ({
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [username, setUsername] = useState("");
-
+    console.log(setUsername);
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
 

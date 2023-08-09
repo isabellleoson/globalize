@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -51,6 +51,7 @@ const UpdatedProducts: React.FC = () => {
 
     const [products, setProducts] = useState<Product[]>([]);
 
+    console.log(products);
     const initialProductState: Product = {
         _id: 0,
         id: 0,
@@ -79,7 +80,6 @@ const UpdatedProducts: React.FC = () => {
             setConfirmationMessage("Produkten är tillagd!");
             console.log("Tillagd product", product.id, product._id);
             console.log("Produkten tillagd");
-
             setProducts((prevProducts) => [...prevProducts, product]);
             setProduct({
                 ...initialProductState,
@@ -189,6 +189,7 @@ const UpdatedProducts: React.FC = () => {
                 <StyledAddProduct>
                     <h1>Lägg till ny produkt</h1>
                     <p>Rubrik:</p>
+
                     <StyledInput
                         type="text"
                         name="productName"
@@ -212,7 +213,7 @@ const UpdatedProducts: React.FC = () => {
                     />
 
                     {typeof product.image === "string" && (
-                        <img src={product.image} />
+                        <img src={product.image} alt="product" />
                     )}
                     <textarea
                         name="description"

@@ -10,7 +10,7 @@ import Coq from "./views/Coq";
 import UpdateProducts from "./views/UpdateProducts";
 
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import { useContext } from "react";
 
 import { UserProvider } from "./components/UserProvider";
