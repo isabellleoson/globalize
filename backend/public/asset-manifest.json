@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48009b13.css",
-    "main.js": "/static/js/main.9e9ac562.js",
+    "main.js": "/static/js/main.a89dde48.js",
     "static/js/787.34cf255e.chunk.js": "/static/js/787.34cf255e.chunk.js",
     "static/media/coqburger3.png": "/static/media/coqburger3.0948aa635b6c42ea4ecf.png",
     "static/media/coqburger2.png": "/static/media/coqburger2.de4ee3f05daff90edd2c.png",
@@ -17,11 +17,11 @@
     "static/media/copyright.svg": "/static/media/copyright.970849368cc8d70ff3282c79ae6bdf63.svg",
     "index.html": "/index.html",
     "main.48009b13.css.map": "/static/css/main.48009b13.css.map",
-    "main.9e9ac562.js.map": "/static/js/main.9e9ac562.js.map",
+    "main.a89dde48.js.map": "/static/js/main.a89dde48.js.map",
     "787.34cf255e.chunk.js.map": "/static/js/787.34cf255e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.48009b13.css",
-    "static/js/main.9e9ac562.js"
+    "static/js/main.a89dde48.js"
   ]
 }

@@ -61,6 +61,9 @@ const UpdatedProducts: React.FC = () => {
         image: "",
     };
 
+    // Add a new piece of state to hold the uploaded image
+    const [uploadedImage, setUploadedImage] = useState<File | null>(null);
+
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
@@ -70,13 +73,20 @@ const UpdatedProducts: React.FC = () => {
             formData.append("productName", product.productName);
             formData.append("price", String(product.price));
             formData.append("description", product.description);
-            formData.append("image", product.image);
+            // formData.append("image", product.image);
 
-            await axios.post("http://localhost:8080/api/product", formData, {
+            if (uploadedImage) {
+                formData.append("image", uploadedImage); // Append the uploaded image
+            } else {
+                formData.append("image", product.image); // Use existing image if no new image uploaded
+            }
+
+            await axios.post("http://localhost:8080/product", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
             });
+
             setConfirmationMessage("Produkten är tillagd!");
             console.log("Tillagd product", product.id, product._id);
             console.log("Produkten tillagd");
@@ -104,9 +114,7 @@ const UpdatedProducts: React.FC = () => {
 
     const handleDelete = async (productId: number) => {
         try {
-            await axios.delete(
-                `http://localhost:8080/api/product/${productId}`
-            );
+            await axios.delete(`http://localhost:8080/product/${productId}`);
             console.log("Raderad produkt ID:", productId);
 
             setResult((prevResult) =>
@@ -133,17 +141,24 @@ const UpdatedProducts: React.FC = () => {
     //     }
     // };
 
+    // const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     if (event.target.files && event.target.files.length > 0) {
+    //         const file = event.target.files[0];
+    //         const formData = new FormData();
+
+    //         formData.append("image", file);
+    //         setProduct((prevProduct) => ({
+    //             ...prevProduct,
+    //             image: file,
+    //             imageFormData: formData,
+    //         }));
+    //     }
+    // };
+
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
             const file = event.target.files[0];
-            const formData = new FormData();
-
-            formData.append("image", file);
-            setProduct((prevProduct) => ({
-                ...prevProduct,
-                image: file,
-                imageFormData: formData,
-            }));
+            setUploadedImage(file); // Set the uploaded image
         }
     };
 
@@ -188,7 +203,7 @@ const UpdatedProducts: React.FC = () => {
                 {confirmationMessage && <p>{confirmationMessage}</p>}
                 <StyledAddProduct>
                     <h1>Lägg till ny produkt</h1>
-                    <p>Rubrik:</p>
+                    <PAdd>Rubrik:</PAdd>
 
                     <StyledInput
                         type="text"
@@ -197,14 +212,15 @@ const UpdatedProducts: React.FC = () => {
                         onChange={handleInputChange}
                         placeholder="Produktnamn..."
                     />
-                    <p>Pris:</p>
+                    <PAdd>Pris:</PAdd>
                     <StyledInput
                         type="text"
                         name="price"
                         value={product.price}
                         onChange={handleInputChange}
                     />
-                    <p>Bild:</p>
+
+                    <PAdd>Bild:</PAdd>
                     <StyledInput
                         name="image"
                         type="file"
@@ -212,10 +228,17 @@ const UpdatedProducts: React.FC = () => {
                         onChange={handleImageChange}
                     />
 
-                    {typeof product.image === "string" && (
-                        <img src={product.image} alt="product" />
+                    {uploadedImage && (
+                        <PreviewImg
+                            src={URL.createObjectURL(uploadedImage)}
+                            alt="Uploaded"
+                        />
                     )}
-                    <textarea
+
+                    {/* {typeof product.image === "string" && (
+                        <img src={product.image} alt="bild saknas" />
+                    )} */}
+                    <Textarea
                         name="description"
                         value={product.description}
                         onChange={handleInputChangeTextArea}
@@ -243,8 +266,17 @@ const Img = styled.img`
     left: 10%;
 `;
 
+const PreviewImg = styled.img`
+    max-width: 70px;
+`;
+
 const P = styled.p`
     margin-left: 15px;
+`;
+
+const PAdd = styled.p`
+    margin-bottom: 1px;
+    font-size: 14px;
 `;
 
 const Li = styled.li`
@@ -278,23 +310,33 @@ const ProductContainer = styled.div`
 
 const StyledAddProduct = styled.div`
     box-shadow: 1px 3px 5px 2px rgba(76, 75, 75, 0.1);
-    display: wrap;
+    display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: center;
 
     background-color: rgba(255, 145, 77, 0.8);
     border-radius: 20px;
-    margin: 10px;
+    margin: 50px;
     padding: 20px;
 `;
 
 const StyledInput = styled.input`
     flex: 1 1 200px;
-    margin: 10px;
+    margin-bottom: 10px;
+    max-width: 200px;
+    max-height: 40px;
+    padding: 10px;
+    font-size: 12px;
     // margin-right: 10px;
     // margin-bottom: 10px;
+`;
+
+const Textarea = styled.textarea`
+    font-size: 12px;
+    width: 200px;
+    margin-top: 10px;
 `;
 
 const EraseButton = styled.button`
@@ -306,6 +348,7 @@ const EraseButton = styled.button`
     position: absolute;
     bottom: 0;
     right: 0;
+    border-radius: 30px;
 `;
 
 const StyledButton = styled.button`
@@ -313,5 +356,6 @@ const StyledButton = styled.button`
     width: auto;
     margin: 10px;
     font-size: 13px;
+    border-radius: 30px;
 `;
 export default UpdatedProducts;

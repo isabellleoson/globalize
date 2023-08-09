@@ -12,6 +12,7 @@ export interface ProductProps {
     productName: string;
     image: string;
     user: string;
+    description: string;
     // name: string;
     quantity: number;
 }
@@ -205,6 +206,7 @@ function WebshopFunction(props: Props) {
                                         />
                                         <p>{product.productName}</p>
                                         <p>Pris: {product.price} sek</p>
+                                        <p>{product.description}</p>
 
                                         <input
                                             type="number"
